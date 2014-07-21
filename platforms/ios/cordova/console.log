@@ -41,3 +41,48 @@ You could find it at the following address https://developer.apple.com/icloud/do
 2014-07-20 23:53:21.049 Bloggify[4311:70b] Finished load of: file:///Users/Puru/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/8B021785-184A-476A-849E-B8B486820601/Bloggify.app/www/articles.html
 2014-07-20 23:53:23.882 Bloggify[4311:70b] Resetting plugins due to page load.
 2014-07-20 23:53:23.925 Bloggify[4311:70b] Finished load of: file:///Users/Puru/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/8B021785-184A-476A-849E-B8B486820601/Bloggify.app/www/blog/2014/06/18/introduction-to-ruby-on-rails-ror-101.html
+2014-07-20 23:55:22.402 Bloggify[4311:70b] Resetting plugins due to page load.
+2014-07-20 23:55:22.408 Bloggify[4311:70b] Failed to load webpage with error: Frame load interrupted
+2014-07-20 23:55:43.879 Bloggify[4311:70b] Resetting plugins due to page load.
+2014-07-20 23:55:43.890 Bloggify[4311:70b] Failed to load webpage with error: Frame load interrupted
+2014-07-20 23:55:46.379 Bloggify[4311:70b] Resetting plugins due to page load.
+2014-07-20 23:55:46.380 Bloggify[4311:70b] Failed to load webpage with error: Frame load interrupted
+2014-07-20 23:56:20.046 Bloggify[4822:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-20 23:56:20.057 Bloggify[4822:70b] Unlimited access to network resources
+2014-07-20 23:56:20.061 Bloggify[4822:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-07-20 23:56:20.141 Bloggify[4822:70b] Resetting plugins due to page load.
+2014-07-20 23:56:20.998 Bloggify[4822:70b] Finished load of: file:///Users/Puru/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/8B021785-184A-476A-849E-B8B486820601/Bloggify.app/www/index.html
+2014-07-20 23:56:53.225 Bloggify[5313:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-20 23:56:53.237 Bloggify[5313:70b] Unlimited access to network resources
+2014-07-20 23:56:53.241 Bloggify[5313:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-07-20 23:56:53.402 Bloggify[5313:70b] Resetting plugins due to page load.
+2014-07-20 23:56:54.577 Bloggify[5313:70b] Finished load of: file:///Users/Puru/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/8B021785-184A-476A-849E-B8B486820601/Bloggify.app/www/index.html
+2014-07-20 23:57:53.488 Bloggify[5313:70b] Resetting plugins due to page load.
+2014-07-20 23:57:53.491 Bloggify[5313:70b] Failed to load webpage with error: Frame load interrupted
+2014-07-20 23:58:14.850 Bloggify[5313:70b] Received memory warning.
+2014-07-21 00:01:46.792 Bloggify[5898:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-21 00:01:46.803 Bloggify[5898:70b] Unlimited access to network resources
+2014-07-21 00:01:46.807 Bloggify[5898:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-07-21 00:01:47.037 Bloggify[5898:70b] Resetting plugins due to page load.
+2014-07-21 00:01:48.393 Bloggify[5898:70b] Finished load of: file:///Users/Puru/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/8B021785-184A-476A-849E-B8B486820601/Bloggify.app/www/index.html
+2014-07-21 00:02:31.006 Bloggify[5898:70b] Resetting plugins due to page load.
+2014-07-21 00:02:31.007 Bloggify[5898:70b] Failed to load webpage with error: Frame load interrupted
+2014-07-21 00:02:40.143 Bloggify[5898:70b] Received memory warning.
