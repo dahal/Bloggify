@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <title>Ruby Variable Scope - by Puru Dahal</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="../../../../stylesheets/all-2f90b023.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/bootstrap-6617e89f.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/syntax-c2e59bbe.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="../../../../javascripts/all-28a62b90.js" type="text/javascript"></script>
+  </head>
+  </head>
+
+    
+    <body class="blog blog_2014 blog_2014_05 blog_2014_05_27 blog_2014_05_27_ruby-variable-scope">
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+    
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+	<div class="btn-group btn-group-justified">
+		<a class="btn btn-sm btn-primary" href="../../../../">HOME</a>
+		<a class="btn btn-sm btn-primary" href="../../../../articles.html">ARTICLES</a>
+		<a class="btn btn-sm btn-primary" href="../../../../archive.html">ARCHIVE</a>
+		<a class="btn btn-sm btn-primary" href="mailto:puru@dahal.co">HIRE ME</a>
+		<!--
+		<a href="index.html" class="btn btn-sm btn-primary">HOME</a>
+		<a href="articles.html" class="btn btn-sm btn-primary">ARTICLES</a>
+		<a href="#" class="btn btn-sm btn-primary">WORKS</a>
+		-->
+	</div><!--/btn-group-->
+</div><!--/col-md-6 col-md-offset-3-->
+        </div><!--/row-->
+			<br/>
+
+		<div class="row">
+			<div class="col-md-3">
+				<center>
+					<a href="../../../../"><img height="100" width="100" alt="My Picture" class="img-circle img-responsive" src="../../../../images/mypic-4771f610.jpg" /></a><br/>
+					<span>By <a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> D4H4L</i></a>
+
+
+				</center>
+			</div>
+			<div class="col-md-6">
+
+				<h2>
+					Ruby Variable Scope<br/>
+					<h4><small><i class="fa fa-calendar"> May 27</i></small></h4>
+				</h2>
+				<br/><br/>
+
+				<p><center><img src="/images/oop-c6ffbc17.jpg" class="img-responsive"></center></p>
+
+<p><small><em>Ruby is a Object Oriented Programming Language (OOP)</em> designed by <em>Yukihiro Matsumoto</em>, aka <a href="https://twitter.com/yukihiro_matz">MATZ</a> on/around February 1993.</small></p>
+
+<h3>Why did he design Ruby?</h3>
+
+<blockquote>
+<p>He answers:- <a href="http://en.wikipedia.org/wiki/Ruby_(programming_language)">source</a></p>
+
+<p><em><small>&quot;I was talking with my colleague about the possibility of an object-oriented scripting language. I knew Perl (Perl4, not Perl5), but I didn&#39;t like it really, because it had the smell of a toy language (it still has). The object-oriented language seemed very promising. I knew Python then. But I didn&#39;t like it, because I didn&#39;t think it was a true object-oriented language — OO features appeared to be add-on to the language. As a language maniac and OO fan for 15 years, I really wanted a genuine object-oriented, easy-to-use scripting language. I looked for but couldn&#39;t find one. So I decided to make it.</small></em></p>
+</blockquote>
+
+<h3>What is Object Oriented Programming Language?</h3>
+
+<blockquote>
+<p><em>Its a programming language model which is based on the concept of objects, and defines both data type and the functionality of that data type all together. In OOP you can create the relationship between the objects and inherit characteristics from one another.</em></p>
+</blockquote>
+
+<p>To learn more about Object Oriented Language Ruby and its nature, we will need to learn more about how to define and use classes, its methods and objects.</p>
+
+<h3>Class</h3>
+
+<blockquote>
+<p>In ruby, classes are defined with &quot;class&quot; followed by class name in CamelCase or just the capitalized word if its a single worded class, and the class ends with word end. For Example:-</p>
+</blockquote>
+<pre class="highlight ruby"><span class="k">class</span> <span class="nc">HelloWorld</span>
+<span class="k">end</span>
+
+<span class="c1">#Or</span>
+<span class="k">class</span> <span class="nc">Hello</span>
+<span class="k">end</span>
+</pre>
+
+<p>So we have class, now we need the variables right? Ruby has four different types of variables.</p>
+<pre class="highlight ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">=&gt;</span> <span class="mi">10</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="k">defined?</span><span class="n">x</span>
+<span class="o">=&gt;</span> <span class="s2">"local-variable"</span>
+
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vi">@x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">=&gt;</span> <span class="mi">10</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">defined?</span><span class="vi">@x</span>
+<span class="o">=&gt;</span> <span class="s2">"instance-variable"</span>
+
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">005</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vc">@@x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">5</span><span class="p">:</span> <span class="ss">warning: </span><span class="k">class</span> <span class="n">variable</span> <span class="n">access</span> <span class="n">from</span> <span class="n">toplevel</span>
+<span class="o">=&gt;</span> <span class="mi">10</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">006</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">defined?</span><span class="vc">@@x</span>
+<span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">6</span><span class="p">:</span> <span class="ss">warning: </span><span class="k">class</span> <span class="n">variable</span> <span class="n">access</span> <span class="n">from</span> <span class="n">toplevel</span>
+<span class="o">=&gt;</span> <span class="s2">"class variable"</span>
+
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">007</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">=&gt;</span> <span class="mi">10</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">defined?</span><span class="vg">$x</span>
+<span class="o">=&gt;</span> <span class="s2">"global-variable"</span>
+
+</pre>
+
+<ul>
+<li><p>Local Variable</p>
+
+<blockquote>
+<p>Local variables are defined with just the small letters and underscores. Just like the name suggests, local variables are locally available for use. For example if a local variable is defined within a method, or a loop, it can only be accessed within that method / loop. All the following are local variables:-</p>
+</blockquote>
+<pre class="highlight ruby"><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">amount</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">height_of_building</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">_Age</span> <span class="o">=</span> <span class="mi">25</span>
+</pre></li>
+<li><p>Instance Variable</p>
+
+<blockquote>
+<p>Instance Variables are defined with @ sign in front of a  letter/word or combination of words separated by    underscore. Instance variables are the most commonly used   ones. Unlike the class variables, two or more different     objects within the same class or the class which inherits   from another class are allowed to have different values for     the instance variables. For example</p>
+</blockquote>
+<pre class="highlight ruby"><span class="vi">@x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="vi">@amount</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="vi">@height_of_building</span> <span class="o">=</span> <span class="mi">1000</span>
+
+</pre>
+
+<p><em>How it works?</em></p>
+<pre class="highlight ruby"><span class="k">class</span> <span class="nc">MyAge</span>
+  <span class="vi">@age</span> <span class="o">=</span> <span class="mi">25</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">age</span>
+    <span class="vi">@age</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">YourAge</span> <span class="o">&lt;</span> <span class="no">MyAge</span>
+  <span class="vi">@age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">MyAge</span><span class="p">.</span><span class="nf">age</span> <span class="o">==</span> <span class="mi">25</span> <span class="c1"># true</span>
+<span class="nb">p</span> <span class="no">YourAge</span><span class="p">.</span><span class="nf">age</span> <span class="o">==</span> <span class="mi">30</span> <span class="c1"># true</span>
+
+</pre></li>
+<li><p>Class Variable</p>
+
+<blockquote>
+<p>Class Variables are defined with double @@ signs followed     by letter/word/or combination of word separated with    underscore. These variables are not so common, these can be     accessed within the class its defined in. And once the  value changes, the value of this variable hangs throughout. </p>
+</blockquote>
+<pre class="highlight ruby"><span class="vc">@@x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="vc">@@amount</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="vc">@@height_of_building</span> <span class="o">=</span> <span class="mi">1000</span>
+</pre>
+
+<p><em>How it works?</em></p>
+<pre class="highlight ruby"><span class="k">class</span> <span class="nc">MyAge</span>
+  <span class="vc">@@age</span> <span class="o">=</span> <span class="mi">25</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">age</span>
+    <span class="vc">@@age</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">YourAge</span> <span class="o">&lt;</span> <span class="no">MyAge</span>
+  <span class="vc">@@age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">MyAge</span><span class="p">.</span><span class="nf">age</span> <span class="o">==</span> <span class="mi">25</span> <span class="c1"># false,returns 30</span>
+<span class="nb">p</span> <span class="no">YourAge</span><span class="p">.</span><span class="nf">age</span> <span class="o">==</span> <span class="mi">30</span> <span class="c1"># true</span>
+
+</pre></li>
+<li><p>Global Variable</p>
+
+<blockquote>
+<p>Global variables are defined with $ sign followed     by letter/word/or combination of word separated with    underscore.These variables are accessible to all the    methods, classes and objects; regardless of where they are  defined.</p>
+</blockquote>
+<pre class="highlight ruby"><span class="vg">$x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="vg">$amount</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="vg">$height_of_building</span> <span class="o">=</span> <span class="mi">1000</span>
+</pre></li>
+</ul>
+
+        <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            //<![CDATA[
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//dahal.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            //]]>
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </script>
+			</div><!--/col-md-6-->
+		</div><!--/row-->
+	</div><!--/container-->
+
+	
+
+
+	<br/><br/><br/>
+
+
+
+
+      </div>
+    </div>
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="text-center col-md-6 col-md-offset-3">
+			<br/>
+			<h2>
+				<a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> </i></a>
+				<a href="http://instagram.com/D4H4L" target="_blank"><i class="fa fa-instagram"> </i></a>
+				<a href="http://github.com/dahal" target="_blank"><i class="fa fa-github-alt"> </i></a>
+				<a href="" target="_blank"><i class=""> </i></a>
+			</h2>
+			<small style="color:#999999">&copy; Puru Dahal</small>
+		</div>
+	</div>
+</div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-47529535-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>
+
+	

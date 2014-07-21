@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <title>Event Manager by JumpStartLab - by Puru Dahal</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="../../../../stylesheets/all-2f90b023.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/bootstrap-6617e89f.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/syntax-c2e59bbe.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="../../../../javascripts/all-28a62b90.js" type="text/javascript"></script>
+  </head>
+  </head>
+
+    
+    <body class="blog blog_2014 blog_2014_01 blog_2014_01_30 blog_2014_01_30_event-manager-by-jumpstartlab">
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+    
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+	<div class="btn-group btn-group-justified">
+		<a class="btn btn-sm btn-primary" href="../../../../">HOME</a>
+		<a class="btn btn-sm btn-primary" href="../../../../articles.html">ARTICLES</a>
+		<a class="btn btn-sm btn-primary" href="../../../../archive.html">ARCHIVE</a>
+		<a class="btn btn-sm btn-primary" href="mailto:puru@dahal.co">HIRE ME</a>
+		<!--
+		<a href="index.html" class="btn btn-sm btn-primary">HOME</a>
+		<a href="articles.html" class="btn btn-sm btn-primary">ARTICLES</a>
+		<a href="#" class="btn btn-sm btn-primary">WORKS</a>
+		-->
+	</div><!--/btn-group-->
+</div><!--/col-md-6 col-md-offset-3-->
+        </div><!--/row-->
+			<br/>
+
+		<div class="row">
+			<div class="col-md-3">
+				<center>
+					<a href="../../../../"><img height="100" width="100" alt="My Picture" class="img-circle img-responsive" src="../../../../images/mypic-4771f610.jpg" /></a><br/>
+					<span>By <a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> D4H4L</i></a>
+
+
+				</center>
+			</div>
+			<div class="col-md-6">
+
+				<h2>
+					Event Manager by JumpStartLab<br/>
+					<h4><small><i class="fa fa-calendar"> Jan 30</i></small></h4>
+				</h2>
+				<br/><br/>
+
+				<p>Well, to begin with, I am learning Ruby. During my process process I would like to put my hands on all the learning tools and resources available for Ruby and Ruby on Rails. Like it or not, I am going to share it all with you.</p>
+
+<p>So, last week I had tried this Event Manager by <a href="http://tutorials.jumpstartlab.com/projects/eventmanager.html">JumpStartLab</a>.</p>
+
+<p>Should you have any questions, please feel free to comment it, or you can also try for your self, their tutorial is pretty self-explainatory.
+<br/><br/></p>
+
+<p>event_manager.rb looks like this.</p>
+<pre class="highlight ruby">
+<span class="c1">#event_manager.rb</span>
+
+<span class="nb">require</span> <span class="s2">"csv"</span>
+<span class="nb">require</span> <span class="s2">"sunlight/congress"</span>
+<span class="nb">require</span> <span class="s2">"erb"</span>
+
+<span class="no">Sunlight</span><span class="o">::</span><span class="no">Congress</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"e179a6973728c4dd3fb1204283aaccb5"</span>
+
+<span class="k">def</span> <span class="nf">clean_zipcode</span><span class="p">(</span><span class="n">zipcode</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">zipcode</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">rjust</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">4</span><span class="o">]</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">legislators_by_zipcode</span><span class="p">(</span><span class="n">zipcode</span><span class="p">)</span>
+    <span class="no">Sunlight</span><span class="o">::</span><span class="no">Congress</span><span class="o">::</span><span class="no">Legislator</span><span class="p">.</span><span class="nf">by_zipcode</span><span class="p">(</span><span class="n">zipcode</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">save_thank_you_letters</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">form_letter</span><span class="p">)</span>
+    <span class="no">Dir</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="s2">"output"</span><span class="p">)</span> <span class="k">unless</span> <span class="no">Dir</span><span class="p">.</span><span class="nf">exists?</span> <span class="s2">"output"</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s2">"output/thanks_</span><span class="si">#{</span><span class="nb">id</span><span class="si">}</span><span class="s2">.html"</span>
+
+    <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+        <span class="n">file</span><span class="p">.</span><span class="nf">puts</span> <span class="n">form_letter</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"EventManager initialized."</span>
+<span class="n">contents</span> <span class="o">=</span> <span class="no">CSV</span><span class="p">.</span><span class="nf">open</span> <span class="s2">"event_attendees.csv"</span><span class="p">,</span> <span class="ss">headers: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">header_converters: :symbol</span>
+
+<span class="c1">#For email template</span>
+<span class="n">template_letter</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span> <span class="s2">"form_letter.erb"</span>
+<span class="n">erb_template</span> <span class="o">=</span> <span class="no">ERB</span><span class="p">.</span><span class="nf">new</span> <span class="n">template_letter</span>
+<span class="n">contents</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+    <span class="nb">name</span> <span class="o">=</span> <span class="n">row</span><span class="o">[</span><span class="ss">:first_name</span><span class="o">]</span>
+    <span class="n">zipcode</span> <span class="o">=</span> <span class="n">clean_zipcode</span><span class="p">(</span><span class="n">row</span><span class="o">[</span><span class="ss">:zipcode</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">legislators</span> <span class="o">=</span> <span class="n">legislators_by_zipcode</span><span class="p">(</span><span class="n">zipcode</span><span class="p">)</span>
+    <span class="n">form_letter</span> <span class="o">=</span> <span class="n">erb_template</span><span class="p">.</span><span class="nf">result</span><span class="p">(</span><span class="nb">binding</span><span class="p">)</span>
+<span class="k">end</span>
+
+
+</pre>
+
+<p><br/><br/></p>
+
+<p>form_letter.erb looks like this:-</p>
+<pre class="highlight ruby">
+<span class="c1">#form_letter.erb</span>
+<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">meta</span> <span class="n">charset</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="no">Thank</span> <span class="no">You</span><span class="o">!&lt;</span><span class="sr">/title&gt;
+&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Thanks</span> <span class="o">&lt;</span><span class="sx">%= name %&gt;&lt;/h1&gt;
+  &lt;p&gt;Thanks for coming to our conference. We couldn't have done it without you!&lt;/p&gt;
+
+  &lt;p&gt;
+    Political activism is at the heart of any democracy and your voice needs to be heard. Please consider reaching out to your following representatives:
+  &lt;/p&gt;
+
+  &lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Website&lt;/th&gt;&lt;/tr&gt;
+    &lt;% legislators.each do |legislator| %&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;%=</span> <span class="s2">"</span><span class="si">#{</span><span class="n">legislator</span><span class="p">.</span><span class="nf">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">legislator</span><span class="p">.</span><span class="nf">last_name</span><span class="si">}</span><span class="s2">"</span> <span class="sx">%&gt;&lt;/td&gt;</span>
+        <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="sx">%= "#{legislator.website}" %&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;% end %&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</span></pre>
+
+<p>I have also pushed this, including output on <a href="https://github.com/dahal/Event_Manager">Github</a>
+<br/><br/></p>
+
+        <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            //<![CDATA[
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//dahal.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            //]]>
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </script>
+			</div><!--/col-md-6-->
+		</div><!--/row-->
+	</div><!--/container-->
+
+	
+
+
+	<br/><br/><br/>
+
+
+
+
+      </div>
+    </div>
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="text-center col-md-6 col-md-offset-3">
+			<br/>
+			<h2>
+				<a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> </i></a>
+				<a href="http://instagram.com/D4H4L" target="_blank"><i class="fa fa-instagram"> </i></a>
+				<a href="http://github.com/dahal" target="_blank"><i class="fa fa-github-alt"> </i></a>
+				<a href="" target="_blank"><i class=""> </i></a>
+			</h2>
+			<small style="color:#999999">&copy; Puru Dahal</small>
+		</div>
+	</div>
+</div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-47529535-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>
+
+	

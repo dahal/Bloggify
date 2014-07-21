@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <title>Project Euler Problem 1 in Ruby - by Puru Dahal</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="../../../../stylesheets/all-2f90b023.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/bootstrap-6617e89f.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/syntax-c2e59bbe.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="../../../../javascripts/all-28a62b90.js" type="text/javascript"></script>
+  </head>
+  </head>
+
+    
+    <body class="blog blog_2014 blog_2014_03 blog_2014_03_19 blog_2014_03_19_project-euler-problem-1-in-ruby">
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+    
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+	<div class="btn-group btn-group-justified">
+		<a class="btn btn-sm btn-primary" href="../../../../">HOME</a>
+		<a class="btn btn-sm btn-primary" href="../../../../articles.html">ARTICLES</a>
+		<a class="btn btn-sm btn-primary" href="../../../../archive.html">ARCHIVE</a>
+		<a class="btn btn-sm btn-primary" href="mailto:puru@dahal.co">HIRE ME</a>
+		<!--
+		<a href="index.html" class="btn btn-sm btn-primary">HOME</a>
+		<a href="articles.html" class="btn btn-sm btn-primary">ARTICLES</a>
+		<a href="#" class="btn btn-sm btn-primary">WORKS</a>
+		-->
+	</div><!--/btn-group-->
+</div><!--/col-md-6 col-md-offset-3-->
+        </div><!--/row-->
+			<br/>
+
+		<div class="row">
+			<div class="col-md-3">
+				<center>
+					<a href="../../../../"><img height="100" width="100" alt="My Picture" class="img-circle img-responsive" src="../../../../images/mypic-4771f610.jpg" /></a><br/>
+					<span>By <a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> D4H4L</i></a>
+
+
+				</center>
+			</div>
+			<div class="col-md-6">
+
+				<h2>
+					Project Euler Problem 1 in Ruby<br/>
+					<h4><small><i class="fa fa-calendar"> Mar 19</i></small></h4>
+				</h2>
+				<br/><br/>
+
+				<p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+
+<p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+
+<p><a href="https://projecteuler.net/problem=1" target="_blank">Problem #1</a></p>
+
+<p><iframe name='quickcast' src='http://quick.as/embed/k4ou06y' scrolling='no' frameborder='0' width='100%' allowfullscreen></iframe><script src='http://quick.as/embed/script/1.02'></script></p>
+<pre class="highlight ruby"><span class="c1">#One way</span>
+<span class="k">def</span> <span class="nf">first_way</span><span class="p">(</span><span class="n">maxnum</span><span class="p">)</span> <span class="c1">#where num in this case is 1000</span>
+     <span class="n">divisible_nums</span> <span class="o">=</span> <span class="o">[</span> <span class="o">]</span>
+     <span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="n">maxnum</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+        <span class="k">if</span> <span class="n">divisible?</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">divisible_nums</span> <span class="o">&lt;&lt;</span> <span class="n">x</span>
+        <span class="k">end</span>
+     <span class="k">end</span>
+
+     <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span>
+     <span class="n">divisible_nums</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span>
+     <span class="k">end</span>
+     <span class="k">return</span> <span class="n">sum</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">divisible?</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="sx">% 3 </span><span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">num</span> <span class="sx">% 5 </span><span class="o">==</span> <span class="mi">0</span>
+        <span class="kp">true</span>
+    <span class="k">else</span>
+        <span class="kp">false</span>
+    <span class="k">end</span> 
+<span class="k">end</span>
+<span class="nb">puts</span> <span class="n">first_way</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+
+<span class="c1">#Another way</span>
+<span class="k">def</span> <span class="nf">second_way</span><span class="p">(</span><span class="n">mx</span><span class="p">)</span>
+    <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">all_nums</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="n">mx</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">div_nums</span> <span class="o">=</span> <span class="o">[</span> <span class="o">]</span>
+    <span class="c1">#list all divisible num first</span>
+    <span class="n">all_nums</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="sx">% 3 </span><span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="sx">% 5 </span><span class="o">==</span> <span class="mi">0</span>
+            <span class="n">div_nums</span> <span class="o">&lt;&lt;</span> <span class="n">n</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="n">div_nums</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">sm</span><span class="o">|</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">sm</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">sum</span>
+<span class="k">end</span>
+<span class="nb">puts</span> <span class="n">second_way</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre>
+
+<p>The results would be:</p>
+<pre class="highlight ruby"><span class="err">$</span> <span class="n">ruby</span> <span class="n">problem_1</span><span class="p">.</span><span class="nf">rb</span>
+    <span class="mi">233168</span>
+    <span class="mi">233168</span>
+</pre>
+
+        <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            //<![CDATA[
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//dahal.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            //]]>
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </script>
+			</div><!--/col-md-6-->
+		</div><!--/row-->
+	</div><!--/container-->
+
+	
+
+
+	<br/><br/><br/>
+
+
+
+
+      </div>
+    </div>
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="text-center col-md-6 col-md-offset-3">
+			<br/>
+			<h2>
+				<a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> </i></a>
+				<a href="http://instagram.com/D4H4L" target="_blank"><i class="fa fa-instagram"> </i></a>
+				<a href="http://github.com/dahal" target="_blank"><i class="fa fa-github-alt"> </i></a>
+				<a href="" target="_blank"><i class=""> </i></a>
+			</h2>
+			<small style="color:#999999">&copy; Puru Dahal</small>
+		</div>
+	</div>
+</div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-47529535-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>
+
+	

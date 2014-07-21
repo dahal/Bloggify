@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <title>Devise Authentication - by Puru Dahal</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="../../../../stylesheets/all-2f90b023.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/bootstrap-6617e89f.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/syntax-c2e59bbe.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="../../../../javascripts/all-28a62b90.js" type="text/javascript"></script>
+  </head>
+  </head>
+
+    
+    <body class="blog blog_2014 blog_2014_02 blog_2014_02_04 blog_2014_02_04_devise-authentication">
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+    
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+	<div class="btn-group btn-group-justified">
+		<a class="btn btn-sm btn-primary" href="../../../../">HOME</a>
+		<a class="btn btn-sm btn-primary" href="../../../../articles.html">ARTICLES</a>
+		<a class="btn btn-sm btn-primary" href="../../../../archive.html">ARCHIVE</a>
+		<a class="btn btn-sm btn-primary" href="mailto:puru@dahal.co">HIRE ME</a>
+		<!--
+		<a href="index.html" class="btn btn-sm btn-primary">HOME</a>
+		<a href="articles.html" class="btn btn-sm btn-primary">ARTICLES</a>
+		<a href="#" class="btn btn-sm btn-primary">WORKS</a>
+		-->
+	</div><!--/btn-group-->
+</div><!--/col-md-6 col-md-offset-3-->
+        </div><!--/row-->
+			<br/>
+
+		<div class="row">
+			<div class="col-md-3">
+				<center>
+					<a href="../../../../"><img height="100" width="100" alt="My Picture" class="img-circle img-responsive" src="../../../../images/mypic-4771f610.jpg" /></a><br/>
+					<span>By <a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> D4H4L</i></a>
+
+
+				</center>
+			</div>
+			<div class="col-md-6">
+
+				<h2>
+					Devise Authentication<br/>
+					<h4><small><i class="fa fa-calendar"> Feb  4</i></small></h4>
+				</h2>
+				<br/><br/>
+
+				<p>There are many other gems available for authentication. If you follow my blog, I will ofcourse share them with you when I get chance. For now, I have Devise for you. Surprisingly easy gem to have authentication on your app...</p>
+
+<p>Let me explain how I did it:-</p>
+
+<ol>
+<li>Create a new app/ or you can use it on existing app</li>
+</ol>
+<pre class="highlight ruby">
+<span class="n">rails</span> <span class="kp">new</span> <span class="no">Neuly</span>
+<span class="c1"># Neuly is the name of my app</span>
+</pre>
+
+<ol>
+<li>Add gem to your gemfile:-</li>
+</ol>
+<pre class="highlight ruby">
+<span class="c1">#Devise Authentication</span>
+<span class="n">gem</span> <span class="s1">'devise'</span>
+
+</pre>
+
+<ol>
+<li>Bundle install, I assume you already know you need to cd inside the app</li>
+</ol>
+<pre class="highlight ruby"><span class="n">bundle</span> <span class="n">install</span>
+</pre>
+
+<ol>
+<li>Install devise, run following on your terminal</li>
+</ol>
+<pre class="highlight ruby"><span class="n">rails</span> <span class="n">g</span> <span class="n">devise</span><span class="ss">:install</span>
+</pre>
+
+<ol>
+<li>Take a look at your terminal, it pretty much explains what you do next</li>
+</ol>
+<pre class="highlight ruby">
+<span class="no">Some</span> <span class="n">setup</span> <span class="n">you</span> <span class="n">must</span> <span class="k">do</span> <span class="n">manually</span> <span class="k">if</span> <span class="n">you</span> <span class="n">haven</span><span class="s1">'t yet:
+
+  1. Ensure you have defined default url options in your environments files. Here 
+     is an example of default_url_options appropriate for a development environment 
+     in config/environments/development.rb:
+
+       config.action_mailer.default_url_options = { :host =&gt; '</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="err">'</span> <span class="p">}</span>
+
+     <span class="no">In</span> <span class="n">production</span><span class="p">,</span> <span class="ss">:host</span> <span class="n">should</span> <span class="n">be</span> <span class="n">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">host</span> <span class="n">of</span> <span class="n">your</span> <span class="n">application</span><span class="o">.</span>
+
+  <span class="mi">2</span><span class="o">.</span> <span class="no">Ensure</span> <span class="n">you</span> <span class="n">have</span> <span class="n">defined</span> <span class="n">root_url</span> <span class="n">to</span> <span class="o">*</span><span class="n">something</span><span class="o">*</span> <span class="k">in</span> <span class="n">your</span> <span class="n">config</span><span class="o">/</span><span class="n">routes</span><span class="p">.</span><span class="nf">rb</span><span class="o">.</span>
+     <span class="no">For</span> <span class="ss">example:
+
+       </span><span class="n">root</span> <span class="ss">:to</span> <span class="o">=&gt;</span> <span class="s2">"home#index"</span>
+
+  <span class="mi">3</span><span class="o">.</span> <span class="no">Ensure</span> <span class="n">you</span> <span class="n">have</span> <span class="n">flash</span> <span class="n">messages</span> <span class="k">in</span> <span class="n">app</span><span class="o">/</span><span class="n">views</span><span class="o">/</span><span class="n">layouts</span><span class="o">/</span><span class="n">application</span><span class="p">.</span><span class="nf">html</span><span class="p">.</span><span class="nf">erb</span><span class="o">.</span>
+     <span class="no">For</span> <span class="ss">example:
+
+       </span><span class="o">&lt;</span><span class="nb">p</span> <span class="k">class</span><span class="o">=</span><span class="s2">"notice"</span><span class="o">&gt;&lt;</span><span class="sx">%= notice %&gt;&lt;/p&gt;
+       &lt;p class=</span><span class="s2">"alert"</span><span class="o">&gt;&lt;</span><span class="sx">%= alert %&gt;&lt;/p&gt;
+
+  4. If you are deploying on Heroku with Rails 3.2 only, you may want to set:
+
+       config.assets.initialize_on_precompile =</span> <span class="kp">false</span>
+
+     <span class="no">On</span> <span class="n">config</span><span class="o">/</span><span class="n">application</span><span class="p">.</span><span class="nf">rb</span> <span class="n">forcing</span> <span class="n">your</span> <span class="n">application</span> <span class="n">to</span> <span class="n">not</span> <span class="n">access</span> <span class="n">the</span> <span class="no">DB</span>
+     <span class="n">or</span> <span class="nb">load</span> <span class="n">models</span> <span class="k">when</span> <span class="n">precompiling</span> <span class="n">your</span> <span class="n">assets</span><span class="o">.</span>
+
+  <span class="mi">5</span><span class="o">.</span> <span class="no">You</span> <span class="n">can</span> <span class="n">copy</span> <span class="no">Devise</span> <span class="n">views</span> <span class="p">(</span><span class="k">for</span> <span class="n">customization</span><span class="p">)</span> <span class="n">to</span> <span class="n">your</span> <span class="n">app</span> <span class="n">by</span> <span class="ss">running:
+
+       </span><span class="n">rails</span> <span class="n">g</span> <span class="n">devise</span><span class="ss">:views</span>
+
+
+</pre>
+
+<p>Follow the instructions above, if you have any problem while doing so please drop a line below <i class="fa fa-hand-o-down"></i> as comment.</p>
+
+<p>That was it, you should have your app ready with authentication. Oh, I forgot to mention, make sure to migrate the database.</p>
+<pre class="highlight ruby">
+<span class="err">$</span> <span class="n">rake</span> <span class="n">db</span><span class="ss">:migrate</span>
+
+</pre>
+
+<p>Stay tuned for <a href="#">cancan + rolify</a></p>
+
+        <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            //<![CDATA[
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//dahal.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            //]]>
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </script>
+			</div><!--/col-md-6-->
+		</div><!--/row-->
+	</div><!--/container-->
+
+	
+
+
+	<br/><br/><br/>
+
+
+
+
+      </div>
+    </div>
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="text-center col-md-6 col-md-offset-3">
+			<br/>
+			<h2>
+				<a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> </i></a>
+				<a href="http://instagram.com/D4H4L" target="_blank"><i class="fa fa-instagram"> </i></a>
+				<a href="http://github.com/dahal" target="_blank"><i class="fa fa-github-alt"> </i></a>
+				<a href="" target="_blank"><i class=""> </i></a>
+			</h2>
+			<small style="color:#999999">&copy; Puru Dahal</small>
+		</div>
+	</div>
+</div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-47529535-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>
+
+	

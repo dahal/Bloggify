@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <title>Javascript Roadtrip 1 - by Puru Dahal</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="../../../../stylesheets/all-2f90b023.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/bootstrap-6617e89f.css" rel="stylesheet" type="text/css" /><link href="../../../../stylesheets/syntax-c2e59bbe.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="../../../../javascripts/all-28a62b90.js" type="text/javascript"></script>
+  </head>
+  </head>
+
+    
+    <body class="blog blog_2014 blog_2014_02 blog_2014_02_26 blog_2014_02_26_javascript-roadtrip-1">
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+    
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+	<div class="btn-group btn-group-justified">
+		<a class="btn btn-sm btn-primary" href="../../../../">HOME</a>
+		<a class="btn btn-sm btn-primary" href="../../../../articles.html">ARTICLES</a>
+		<a class="btn btn-sm btn-primary" href="../../../../archive.html">ARCHIVE</a>
+		<a class="btn btn-sm btn-primary" href="mailto:puru@dahal.co">HIRE ME</a>
+		<!--
+		<a href="index.html" class="btn btn-sm btn-primary">HOME</a>
+		<a href="articles.html" class="btn btn-sm btn-primary">ARTICLES</a>
+		<a href="#" class="btn btn-sm btn-primary">WORKS</a>
+		-->
+	</div><!--/btn-group-->
+</div><!--/col-md-6 col-md-offset-3-->
+        </div><!--/row-->
+			<br/>
+
+		<div class="row">
+			<div class="col-md-3">
+				<center>
+					<a href="../../../../"><img height="100" width="100" alt="My Picture" class="img-circle img-responsive" src="../../../../images/mypic-4771f610.jpg" /></a><br/>
+					<span>By <a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> D4H4L</i></a>
+
+
+				</center>
+			</div>
+			<div class="col-md-6">
+
+				<h2>
+					Javascript Roadtrip 1<br/>
+					<h4><small><i class="fa fa-calendar"> Feb 26</i></small></h4>
+				</h2>
+				<br/><br/>
+
+				<h3>Separating Printout Statements</h3>
+
+<p>Now, say that Old Faithful’s eruptions are kept as separate variables in oldFaithful.js, as you can see in the file.</p>
+
+<p>Print the following message to the console using ONLY variable names to access all values in the printout.Additionally, use one console.log() statement PER LINE of the output. Here, &lt; and &gt; indicate where our variable’s actual value should be placed. There should be no &lt; &gt; in your output, however. Be attentive as well to spacing.</p>
+
+<p>We’ve also given you a variable name for the average, but to succeed at this challenge, you’ll need to think of how to calculate the average using only the variable names and operation syntax.</p>
+<pre class="highlight javascript">
+<span class="s2">"Old Faithful"</span> <span class="nx">at</span> <span class="nx">Yellowstone</span> <span class="nx">National</span> <span class="nx">Park</span>
+<span class="nx">Eruption</span> <span class="mi">1</span><span class="err">:</span> <span class="o">&lt;</span><span class="nx">first</span> <span class="nx">eruption</span> <span class="nx">amount</span> <span class="nx">goes</span> <span class="nx">here</span><span class="o">&gt;</span>
+<span class="nx">Eruption</span> <span class="mi">2</span><span class="err">:</span> <span class="o">&lt;</span><span class="nx">second</span> <span class="nx">eruption</span> <span class="nx">amount</span> <span class="nx">goes</span> <span class="nx">here</span><span class="o">&gt;</span>
+<span class="nx">Eruption</span> <span class="mi">3</span><span class="err">:</span> <span class="o">&lt;</span><span class="nx">third</span> <span class="nx">eruption</span> <span class="nx">amount</span> <span class="nx">goes</span> <span class="nx">here</span><span class="o">&gt;</span>
+<span class="nx">Average</span> <span class="nx">eruption</span> <span class="nx">height</span> <span class="nx">today</span><span class="err">:</span> <span class="o">&lt;</span><span class="nx">average</span> <span class="nx">value</span> <span class="nx">goes</span> <span class="nx">here</span><span class="o">&gt;</span>
+
+</pre>
+
+<h3><em>Question</em></h3>
+<pre class="highlight javascript"><span class="cm">/* oldFaithful.js */</span>
+<span class="kd">var</span> <span class="nx">eruption1</span> <span class="o">=</span> <span class="mi">112</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">eruption2</span> <span class="o">=</span> <span class="mi">148</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">eruption3</span> <span class="o">=</span> <span class="mi">160</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">numEruptions</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">avg</span> <span class="o">=</span> 
+
+
+</pre>
+
+<h3><em>Solution</em></h3>
+<pre class="highlight javascript"><span class="cm">/* oldFaithful.js */</span>
+<span class="kd">var</span> <span class="nx">eruption1</span> <span class="o">=</span> <span class="mi">112</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">eruption2</span> <span class="o">=</span> <span class="mi">148</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">eruption3</span> <span class="o">=</span> <span class="mi">160</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">numEruptions</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">avg</span> <span class="o">=</span> <span class="p">((</span><span class="nx">eruption1</span> <span class="o">+</span> <span class="nx">eruption2</span> <span class="o">+</span> <span class="nx">eruption3</span><span class="p">)</span> <span class="o">/</span> <span class="nx">numEruptions</span> <span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'"Old Faithful" at Yellowstone National Park'</span> <span class="o">+</span> <span class="s1">'\n'</span> <span class="o">+</span>
+            <span class="s1">'Eruption 1: '</span> <span class="o">+</span> <span class="nx">eruption1</span>  <span class="o">+</span> <span class="s1">'\n'</span> <span class="o">+</span>
+            <span class="s1">'Eruption 2: '</span> <span class="o">+</span> <span class="nx">eruption2</span>  <span class="o">+</span> <span class="s1">'\n'</span> <span class="o">+</span>
+            <span class="s1">'Eruption 3: '</span> <span class="o">+</span> <span class="nx">eruption3</span>  <span class="o">+</span> <span class="s1">'\n'</span> <span class="o">+</span>
+            <span class="s1">'Average eruption height today: '</span> <span class="o">+</span> <span class="nx">avg</span> <span class="p">);</span>
+
+
+</pre>
+
+<p><a href="http://go.codeschool.com/7rFnmg" target="_blank">From Codeschool:-</a></p>
+
+        <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            //<![CDATA[
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//dahal.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            //]]>
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </script>
+			</div><!--/col-md-6-->
+		</div><!--/row-->
+	</div><!--/container-->
+
+	
+
+
+	<br/><br/><br/>
+
+
+
+
+      </div>
+    </div>
+    <div class="container-fluid" style="background:#16a085; padding: 5px 0px 0px 0px;"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="text-center col-md-6 col-md-offset-3">
+			<br/>
+			<h2>
+				<a href="http://twitter.com/D4H4L" target="_blank"><i class="fa fa-twitter"> </i></a>
+				<a href="http://instagram.com/D4H4L" target="_blank"><i class="fa fa-instagram"> </i></a>
+				<a href="http://github.com/dahal" target="_blank"><i class="fa fa-github-alt"> </i></a>
+				<a href="" target="_blank"><i class=""> </i></a>
+			</h2>
+			<small style="color:#999999">&copy; Puru Dahal</small>
+		</div>
+	</div>
+</div>
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-47529535-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  </body>
+</html>
+
+	
