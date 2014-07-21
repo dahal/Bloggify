@@ -1,7 +1,7 @@
 ##Bloggify
 Trying out PhoneGap for iOS.
 
-![Screenshot](Screenshot.png)
+<img src="/Screenshot.png">
 
 ```
 	~> npm install -g phonegap
