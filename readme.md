@@ -1,8 +1,7 @@
 ##Bloggify
 Trying out PhoneGap for iOS.
 
-<img src="/Screenshot.png">
-
+![screenshot](https://raw.githubusercontent.com/dahal/Bloggify/master/ScreenShot.png)
 ```
 	~> npm install -g phonegap
 	~> phonegap create Bloggify
